@@ -1,74 +1,83 @@
-# =====================================
-# Smart Python Calculator
-# =====================================
+# =========================================
+# Python Scientific Calculator
+# =========================================
 
 import math
-
-history = []
 
 
 # ---------- Functions ----------
 
-def addition(a, b):
+def add(a, b):
     return a + b
 
 
-def subtraction(a, b):
+def subtract(a, b):
     return a - b
 
 
-def multiplication(a, b):
+def multiply(a, b):
     return a * b
 
 
-def division(a, b):
+def divide(a, b):
     if b == 0:
         return "Cannot divide by zero"
     return a / b
 
 
-def modulus(a, b):
-    return a % b
+def sine(x):
+    return math.sin(math.radians(x))
 
 
-def power(a, b):
-    return a ** b
+def cosine(x):
+    return math.cos(math.radians(x))
 
 
-def square_root(a):
-    if a < 0:
+def tangent(x):
+    return math.tan(math.radians(x))
+
+
+def degree_to_radian(x):
+    return math.radians(x)
+
+
+def radian_to_degree(x):
+    return math.degrees(x)
+
+
+def square_root(x):
+    if x < 0:
         return "Invalid Input"
-    return math.sqrt(a)
+    return math.sqrt(x)
 
 
-def percentage(a, b):
-    return (a / b) * 100
-
-
-# ---------- Menu ----------
-
-def show_menu():
-    print("\n========= SMART CALCULATOR =========")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Modulus")
-    print("6. Power")
-    print("7. Square Root")
-    print("8. Percentage")
-    print("9. View History")
-    print("10. Exit")
-    print("====================================")
+def logarithm(x):
+    if x <= 0:
+        return "Invalid Input"
+    return math.log10(x)
 
 
 # ---------- Main Program ----------
 
 while True:
 
-    show_menu()
+    print("\n======= SCIENTIFIC CALCULATOR =======")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Value of Pi")
+    print("6. Sin(x)")
+    print("7. Cos(x)")
+    print("8. Tan(x)")
+    print("9. Degree to Radian")
+    print("10. Radian to Degree")
+    print("11. Square Root")
+    print("12. Logarithm")
+    print("13. Exit")
+    print("=====================================")
 
-    choice = input("Enter your choice: ")
+    choice = input("Enter your choice (1-13): ")
 
     try:
 
@@ -76,107 +85,72 @@ while True:
         if choice == '1':
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
-
-            result = addition(a, b)
-
-            print("Result:", result)
-
-            history.append(f"{a} + {b} = {result}")
+            print("Result:", add(a, b))
 
         # Subtraction
         elif choice == '2':
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
-
-            result = subtraction(a, b)
-
-            print("Result:", result)
-
-            history.append(f"{a} - {b} = {result}")
+            print("Result:", subtract(a, b))
 
         # Multiplication
         elif choice == '3':
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
-
-            result = multiplication(a, b)
-
-            print("Result:", result)
-
-            history.append(f"{a} × {b} = {result}")
+            print("Result:", multiply(a, b))
 
         # Division
         elif choice == '4':
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
+            print("Result:", divide(a, b))
 
-            result = division(a, b)
-
-            print("Result:", result)
-
-            history.append(f"{a} ÷ {b} = {result}")
-
-        # Modulus
+        # Pi
         elif choice == '5':
-            a = float(input("Enter first number: "))
-            b = float(input("Enter second number: "))
+            print("Value of Pi:", math.pi)
 
-            result = modulus(a, b)
-
-            print("Result:", result)
-
-            history.append(f"{a} % {b} = {result}")
-
-        # Power
+        # Sin(x)
         elif choice == '6':
-            a = float(input("Enter base number: "))
-            b = float(input("Enter power: "))
+            angle = float(input("Enter angle in degrees: "))
+            print("Sin(", angle, ") =", sine(angle))
 
-            result = power(a, b)
+        # Cos(x)
+        elif choice == '7':
+            angle = float(input("Enter angle in degrees: "))
+            print("Cos(", angle, ") =", cosine(angle))
 
-            print("Result:", result)
+        # Tan(x)
+        elif choice == '8':
+            angle = float(input("Enter angle in degrees: "))
+            print("Tan(", angle, ") =", tangent(angle))
 
-            history.append(f"{a} ^ {b} = {result}")
+        # Degree to Radian
+        elif choice == '9':
+            degree = float(input("Enter degree value: "))
+            print("Radians:", degree_to_radian(degree))
+
+        # Radian to Degree
+        elif choice == '10':
+            radian = float(input("Enter radian value: "))
+            print("Degrees:", radian_to_degree(radian))
 
         # Square Root
-        elif choice == '7':
-            a = float(input("Enter a number: "))
+        elif choice == '11':
+            number = float(input("Enter number: "))
+            print("Square Root:", square_root(number))
 
-            result = square_root(a)
-
-            print("Result:", result)
-
-            history.append(f"√{a} = {result}")
-
-        # Percentage
-        elif choice == '8':
-            a = float(input("Enter obtained value: "))
-            b = float(input("Enter total value: "))
-
-            result = percentage(a, b)
-
-            print("Percentage:", result, "%")
-
-            history.append(f"Percentage of {a}/{b} = {result}%")
-
-        # History
-        elif choice == '9':
-
-            print("\n======= Calculation History =======")
-
-            if len(history) == 0:
-                print("No calculations performed yet.")
-            else:
-                for item in history:
-                    print(item)
+        # Logarithm
+        elif choice == '12':
+            number = float(input("Enter number: "))
+            print("Log Value:", logarithm(number))
 
         # Exit
-        elif choice == '10':
-            print("Thank you for using Smart Calculator.")
+        elif choice == '13':
+            print("Scientific Calculator Closed")
             break
 
         else:
-            print("Invalid Choice! Please select valid option.")
+            print("Invalid Choice!")
 
     except ValueError:
-        print("Invalid Input! Please enter numeric values.")
+        print("Please enter valid numeric input.")
