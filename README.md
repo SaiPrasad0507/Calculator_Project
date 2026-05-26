@@ -1,7 +1,7 @@
-# Smart Python Calculator
+# Scientific Calculator in Python
 
-A menu-driven calculator application developed using Python.  
-This project performs basic as well as some advanced mathematical operations with proper error handling and calculation history.
+A menu-driven Scientific Calculator developed using Python.  
+This calculator performs basic arithmetic operations along with scientific calculations.
 
 ---
 
@@ -11,13 +11,15 @@ This project performs basic as well as some advanced mathematical operations wit
 - Subtraction
 - Multiplication
 - Division
-- Modulus
-- Power Calculation
+- Value of Pi (π)
+- Sin(x)
+- Cos(x)
+- Tan(x)
+- Degree to Radian Conversion
+- Radian to Degree Conversion
 - Square Root
-- Percentage Calculation
-- Calculation History
+- Logarithm
 - Error Handling
-- Menu Driven Interface
 
 ---
 
@@ -28,10 +30,9 @@ This project performs basic as well as some advanced mathematical operations wit
 
 ---
 
-## Project Structure
+## How to Run
 
-```text
-Smart-Calculator/
-│
-├── smart_calculator.py
-└── README.md
+Run the following command in terminal:
+
+```bash
+python scientific_calculator.py
